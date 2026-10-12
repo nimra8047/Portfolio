@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nimra Abdul Sattar — GHL Expert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --bg2: #161616;
+      --text: #b7ab98;
+      --text-bright: #d4c9b8;
+      --muted: #7a7268;
+      --dim: #4d4d4d;
+      --accent: #eb5939;
+      --border: #2a2a2a;
+      --font: 'Nunito Sans', system-ui, sans-serif;
+      --display: 'Syne', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      background: var(--bg);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+    .logo {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      color: var(--text);
+      transition: color 0.2s, transform 0.25s ease;
+      display: inline-block;
+    }
+    .logo:hover { color: var(--accent); transform: scale(1.05); }
+    .mode-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border: 1px solid #3a3a3a;
+      border-radius: 4px;
+      background: #1a1a1a;
+      color: var(--text);
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .mode-btn:hover {
+      border-color: var(--accent);
+      background: #1a1210;
+      color: var(--accent);
+    }
+    .mode-btn .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      transition: background 0.25s;
+    }
+    body.honest .mode-btn .dot { background: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 120px 32px 80px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(36px, 10vw, 96px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      color: var(--text);
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 460px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: #0d0d0d;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: opacity 0.2s, transform 0.25s ease;
+    }
+    .btn:hover { opacity: 0.92; transform: scale(1.04); }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 32px;
+      max-width: 960px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 40px;
+      color: var(--text-bright);
+      text-transform: uppercase;
+    }
+
+    .about-text {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 620px;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      overflow: visible;
+    }
+    .card {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      padding: 28px 24px;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      transform-origin: center;
+    }
+    .cards .card:nth-child(2n) { border-right: none; }
+    .card:hover {
+      background: #1a1210;
+      border-color: var(--accent);
+      transform: scale(1.03);
+      z-index: 2;
+      position: relative;
+    }
+    .card h3 {
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 10px;
+      color: var(--text-bright);
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    .card:hover h3 { color: var(--accent); }
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      transition: color 0.25s;
+    }
+    .card:hover p { color: var(--text); }
+
+    /* PROJECT */
+    .project-card {
+      border: 1px solid var(--border);
+      padding: 32px;
+      cursor: pointer;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--bg);
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      background: #1a1210;
+      transform: scale(1.02);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+    .project-meta {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .project-title {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-bright);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+    }
+    .project-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      max-width: 560px;
+    }
+    .project-cta {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--text-bright);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .project-card:hover .project-cta {
+      color: var(--accent);
+      gap: 12px;
+    }
+
+    /* EXPERIENCE */
+    .job {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      transition: padding-left 0.3s ease;
+    }
+    .job:hover { padding-left: 8px; }
+    .job:hover .job-role { color: var(--accent); }
+    .job-role { transition: color 0.25s; }
+    .job:last-child { border-bottom: none; }
+    .job-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .job-role {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: -0.3px;
+    }
+    .job-date {
+      font-size: 12px;
+      color: var(--dim);
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .job-company {
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .job ul li {
+      font-size: 14.5px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 7px;
+      line-height: 1.55;
+    }
+    .job ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--dim);
+    }
+
+    /* EDU */
+    .edu-block { margin-bottom: 36px; }
+    .edu-degree {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text-bright);
+    }
+    .edu-meta { font-size: 14px; color: var(--dim); }
+    .cert {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14.5px;
+      transition: padding-left 0.25s, color 0.25s;
+    }
+    .cert:hover { padding-left: 8px; }
+    .cert:hover .cert-name { color: var(--accent); }
+    .cert:last-child { border-bottom: none; }
+    .cert-name { font-weight: 500; color: var(--text); }
+    .cert-org { color: var(--dim); font-size: 13px; white-space: nowrap; }
+
+    /* TAGS */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      padding: 8px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+      transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.25s ease;
+    }
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #1a1210;
+      transform: scale(1.06);
+    }
+
+    /* MOTTO */
+    .motto {
+      text-align: center;
+      padding: 110px 32px;
+      max-width: 720px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .motto blockquote {
+      font-family: var(--display);
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 18px;
+      color: var(--text-bright);
+      text-transform: uppercase;
+    }
+    .motto cite {
+      font-size: 12px;
+      color: var(--dim);
+      font-style: normal;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .contact-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 22px;
+      transition: border-color 0.25s, background 0.25s, transform 0.3s ease, box-shadow 0.25s;
+    }
+    .contact-item:hover {
+      border-color: var(--accent);
+      background: #1a1210;
+      transform: scale(1.03);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+    .contact-item:hover .contact-value { color: var(--accent); }
+    .contact-item:hover .contact-label { color: var(--accent); }
+    .contact-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 8px;
+    }
+    .contact-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-bright);
+      word-break: break-all;
+    }
+    .contact-note {
+      font-size: 12px;
+      color: var(--dim);
+      margin-top: 6px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 32px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--dim);
+      letter-spacing: 0.5px;
+    }
+
+    /* Dual content */
+    .hon { display: none; }
+    body.honest .pro { display: none; }
+    body.honest .hon { display: block; }
+    body.honest span.hon { display: inline; }
+    span.hon { display: none; }
+    body.honest span.pro { display: none; }
+    body.honest li.hon { display: list-item; }
+    li.hon { display: none; }
+    body.honest li.pro { display: none; }
+    body.honest p.hon { display: block; }
+    p.hon { display: none; }
+    body.honest p.pro { display: none; }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal {
+      background: #111;
+      border: 1px solid var(--border);
+      max-width: 900px;
+      width: 100%;
+      padding: 36px 32px;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      font-size: 18px;
+      color: var(--muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .modal-close:hover { border-color: var(--muted); color: var(--text); }
+    .modal-header {
+      margin-bottom: 28px;
+      padding-right: 40px;
+    }
+    .modal-header h2 {
+      font-family: var(--display);
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-bright);
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+    .modal-header p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .wf-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .wf-item {
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.3s ease;
+    }
+    .wf-item:hover {
+      border-color: var(--accent);
+      transform: scale(1.01);
+    }
+    .wf-item-title {
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-bright);
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      background: #141414;
+    }
+    .wf-item-imgs {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: #0a0a0a;
+    }
+    .wf-item-imgs img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* RESPONSIVE */
+    @media (min-width: 1400px) {
+      .hero, section, .motto { max-width: 1100px; }
+      .hero h1 { font-size: 100px; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .hero h1 { font-size: clamp(36px, 10vw, 64px); letter-spacing: -1.5px; }
+      section { padding: 70px 20px; }
+      .motto { padding: 80px 20px; }
+      .section-title { font-size: clamp(24px, 5vw, 36px); }
+      .modal { padding: 28px 20px; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 16px; }
+      .logo { font-size: 16px; }
+      .mode-btn { font-size: 10px; padding: 7px 10px; letter-spacing: 1px; }
+      .hero { padding: 90px 16px 50px; }
+      .hero-tag { font-size: 10px; letter-spacing: 2px; margin-bottom: 24px; }
+      .hero h1 {
+        font-size: clamp(32px, 11.5vw, 48px);
+        letter-spacing: -1px;
+        margin-bottom: 24px;
+      }
+      .hero-sub { font-size: 15px; max-width: 100%; margin-bottom: 28px; }
+      .btn { padding: 12px 22px; font-size: 12px; width: 100%; text-align: center; }
+      section { padding: 56px 16px; }
+      .section-title { font-size: clamp(22px, 7vw, 30px); margin-bottom: 28px; }
+      .about-text { font-size: 15px; max-width: 100%; }
+      .cards { grid-template-columns: 1fr; }
+      .card { border-right: none; padding: 22px 0; }
+      .cards .card:nth-child(2n) { border-right: none; }
+      .card h3 { font-size: 14px; }
+      .card p { font-size: 13.5px; }
+      .project-card { padding: 24px 20px; }
+      .project-title { font-size: 18px; }
+      .job { padding: 24px 0; }
+      .job-top { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .job-role { font-size: 17px; }
+      .job-date { font-size: 11px; }
+      .job-company { font-size: 13px; margin-bottom: 12px; }
+      .job ul li { font-size: 13.5px; }
+      .edu-degree { font-size: 17px; }
+      .cert { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 0; }
+      .cert-name { font-size: 14px; }
+      .cert-org { font-size: 12px; }
+      .tags { gap: 6px; }
+      .tag { padding: 6px 12px; font-size: 12px; }
+      .motto { padding: 64px 16px; }
+      .motto blockquote { font-size: clamp(20px, 6vw, 28px); }
+      .motto cite { font-size: 11px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-item { padding: 18px; }
+      .contact-value { font-size: 14px; }
+      footer { padding: 20px 16px; font-size: 11px; }
+      .modal-overlay { padding: 16px 12px; }
+      .modal { padding: 24px 16px; }
+      .modal-header h2 { font-size: 18px; }
+    }
+
+    @media (max-width: 380px) {
+      .hero h1 { font-size: clamp(28px, 12vw, 36px); }
+      .hero-tag { font-size: 9px; letter-spacing: 1.5px; }
+      .mode-btn { padding: 7px 10px; font-size: 9px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Nimra</a>
+  <button class="mode-btn" id="modeBtn" type="button">
+    <span class="dot"></span>
+    <span id="modeLabel">Pro mode</span>
+  </button>
+</nav>
+
+<header class="hero">
+  <p class="hero-tag reveal">
+    <span class="hon">Still learning · Still shipping</span>
+  </p>
+  <h1 class="reveal reveal-delay-1">
+    <span class="pro">Building<br>systems<br>that<br><span class="accent">work.</span></span>
+    <span class="hon">Automating<br>the boring<br>stuff so<br><span class="accent">you don't.</span></span>
+  </h1>
+  <p class="hero-sub reveal reveal-delay-2">
+    <span class="pro">Computer science graduate and Go High Level specialist. I help businesses set up CRM workflows, sales funnels, and automations that save time and convert leads.</span>
+    <span class="hon">CS grad who spends most days inside Go High Level, n8n, and SMS compliance settings. I build the systems that capture leads and book appointments so you can stop living in your inbox.</span>
+  </p>
+  <a href="#contact" class="btn reveal reveal-delay-3">Get in touch</a>
+</header>
+
+<section id="about">
+  <h2 class="section-title reveal">
+    <span class="pro">About</span>
+    <span class="hon">Who I am</span>
+  </h2>
+  <p class="about-text reveal reveal-delay-1">
+    <span class="pro">I'm a computer science graduate from Virtual University with a focus on Go High Level, automation, and frontend work. I design streamlined systems that improve customer journeys, cut down manual tasks, and help businesses grow without the chaos. Proactive, analytical, and always looking for a cleaner way to get things done.</span>
+    <span class="hon">I'm a recent CS graduate who got good at Go High Level, n8n, and making sure SMS campaigns don't get blocked. Most of my work is building the boring but important stuff: lead capture, follow ups, appointment booking, so business owners can focus on what they actually enjoy. Still learning. Still shipping.</span>
+  </p>
+</section>
+
+<section id="work">
+  <h2 class="section-title reveal">
+    <span class="pro">Services</span>
+    <span class="hon">What I get paid for</span>
+  </h2>
+  <div class="cards">
+    <div class="card reveal">
+      <h3>GHL &amp; CRM Automation</h3>
+      <p class="pro">Full Go High Level setup: pipelines, triggers, calendars, forms, and end to end workflows for lead nurturing and client communication.</p>
+      <p class="hon">I live in GHL. Pipelines, stages, triggers, calendars. If it can be automated, I've probably built it (and fixed it when it broke).</p>
+    </div>
+    <div class="card reveal reveal-delay-1">
+      <h3>Funnels &amp; Landing Pages</h3>
+      <p class="pro">High converting landing pages, sales funnels, and websites built in GHL, designed for clarity and conversion.</p>
+      <p class="hon">Pages that ask for the email and look decent doing it. Built inside GHL, not dragged from a generic template.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Integrations</h3>
+      <p class="pro">Connecting GHL with n8n,webhooks, and Facebook Lead Ads for seamless data flow.</p>
+      <p class="hon">Gluing apps together so data moves where it should. n8n, Zapier, Make, webhooks, whichever fits.</p>
+    </div>
+    <div class="card reveal reveal-delay-1">
+      <h3>SMS &amp; Email Systems</h3>
+      <p class="pro">A2P 10DLC registration, compliant SMS campaigns, and branded email/SMS templates that improve deliverability.</p>
+      <p class="hon">Making sure texts actually get delivered and don't land you in spam jail. Also writing messages that don't sound like robots.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Frontend Development</h3>
+      <p class="pro">Responsive interfaces with HTML, CSS &amp; JavaScript. Custom e commerce with design previews and upload features.</p>
+      <p class="hon">HTML, CSS, JS. Making things look fine on mobile and sometimes adding a design preview that actually works.</p>
+    </div>
+    <div class="card reveal reveal-delay-1">
+      <h3>Troubleshooting</h3>
+      <p class="pro">Fixing workflow failures, integration issues, SMS delivery problems, and lead routing bugs.</p>
+      <p class="hon">When something breaks (and it will), I find out why and fix it. Preferably before anyone notices.</p>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <h2 class="section-title reveal">Selected work</h2>
+  <div class="project-card reveal" id="openProject" role="button" tabindex="0">
+    <div class="project-meta">GHL · Cleaning business · 17 workflows</div>
+    <h3 class="project-title">Full lead to booked pipeline</h3>
+    <p class="project-desc">
+      <span class="pro">End to end Go High Level automation for a cleaning company: instant lead response, appointment booking, reminders, no show recovery, nurture sequences, quote follow ups, and review requests. Built with SMS consent checks and business hours routing.</span>
+      <span class="hon">Seventeen workflows that take a form fill from "who is this?" to "they're booked, reminded, and asked for a review." Includes the boring compliance bits so SMS stays legal.</span>
+    </p>
+    <span class="project-cta">View workflows <span aria-hidden="true">→</span></span>
+  </div>
+</section>
+
+<section id="experience">
+  <h2 class="section-title reveal">
+    <span class="pro">Experience</span>
+    <span class="hon">Where I've been</span>
+  </h2>
+
+  <div class="job reveal">
+    <div class="job-top">
+      <span class="job-role">
+        <span class="pro">Frontend Developer</span>
+        <span class="hon">GHL Developer</span>
+      </span>
+      <span class="job-date">Jul – Sep 2026</span>
+    </div>
+    <div class="job-company">CRM Automates</div>
+    <ul>
+      <li class="pro">Managed GoHighLevel accounts for US based clients: CRM setup, configuration, and automation.</li>
+      <li class="hon">Kept US clients' GHL accounts running without major fires.</li>
+      <li class="pro">Built high converting landing pages, sales funnels, and websites to client requirements.</li>
+      <li class="hon">Built the pages and funnels they needed (and fixed the ones that weren't converting).</li>
+      <li class="pro">Designed automated workflows for lead nurturing, follow ups, and client communication.</li>
+      <li class="hon">Wired up lead nurturing so follow ups actually happened on time.</li>
+      <li class="pro">Handled A2P 10DLC registration and created email/SMS templates for outreach campaigns.</li>
+      <li class="hon">Dealt with A2P registration so texts could go out legally.</li>
+      <li class="pro">Integrated GHL with external apps using n8n; troubleshot workflows and integrations.</li>
+      <li class="hon">Connected everything with n8n and fixed whatever broke along the way.</li>
+    </ul>
+  </div>
+
+  <div class="job reveal">
+    <div class="job-top">
+      <span class="job-role">
+        <span class="pro">GHL Expert</span>
+        <span class="hon">Automation Specialist</span>
+      </span>
+      <span class="job-date">Mar – Jun 2026</span>
+    </div>
+    <div class="job-company">Growth Guild</div>
+    <ul>
+      <li class="pro">Designed websites, landing pages, and sales funnels inside GoHighLevel.</li>
+      <li class="hon">Made a lot of GHL pages that didn't look like default templates.</li>
+      <li class="pro">Built automation workflows to reduce manual tasks and improve campaign efficiency.</li>
+      <li class="hon">Automated the repetitive stuff so people could do more interesting work.</li>
+      <li class="pro">Managed A2P messaging and ran high volume SMS campaigns with compliance focus.</li>
+      <li class="hon">Sent a lot of compliant SMS without getting accounts banned.</li>
+      <li class="pro">Created branded email/SMS templates; built lead nurturing, booking, and reminder flows.</li>
+      <li class="hon">Wrote messages that sounded like the brand and built the full lead to booking loop.</li>
+      <li class="pro">Managed pipelines, forms, surveys, calendars, and triggers. Integrated via Zapier, Make, and webhooks.</li>
+      <li class="hon">Pipelines, forms, calendars, triggers: the full toolkit. Glued GHL to everything else with Zapier and Make.</li>
+      <li class="pro">Connected Facebook Lead Ads and other sources for automated lead capture and routing.</li>
+      <li class="hon">Made Facebook leads actually land in the right place.</li>
+    </ul>
+  </div>
+
+  <div class="job reveal">
+    <div class="job-top">
+      <span class="job-role">
+        <span class="pro">Frontend Developer</span>
+        <span class="hon">Frontend </span>
+      </span>
+      <span class="job-date">Dec 2025 – Jan 2026</span>
+    </div>
+    <div class="job-company">Freelance Project</div>
+    <ul>
+      <li class="pro">Built a custom e commerce site for personalized printing (mugs, shirts, and more) with a team.</li>
+      <li class="hon">Helped build an online shop where people personalize mugs and shirts.</li>
+      <li class="pro">Implemented the frontend in HTML, CSS, and JavaScript: responsive and cross browser compatible.</li>
+      <li class="hon">Wrote the HTML, CSS, and JS so it looked good and worked on phones.</li>
+      <li class="pro">Added design previews and custom upload functionality; integrated with a PHP backend.</li>
+      <li class="hon">Made the design preview and upload features work, and coordinated with the PHP backend side.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="education">
+  <h2 class="section-title reveal">Background</h2>
+  <div class="edu-block reveal">
+    <div class="edu-degree">Bachelor's in Computer Science</div>
+    <div class="edu-meta">Virtual University · Pakistan</div>
+  </div>
+  <div class="certs">
+    <div class="cert reveal"><span class="cert-name">Digital Awareness</span><span class="cert-org">Cisco · 2024</span></div>
+    <div class="cert reveal"><span class="cert-name">Introduction to HTML5</span><span class="cert-org">Coursera · 2025</span></div>
+    <div class="cert reveal"><span class="cert-name">Python Programming Fundamentals</span><span class="cert-org">Microsoft · 2025</span></div>
+    <div class="cert reveal"><span class="cert-name">Data Analysis &amp; Visualization with Python</span><span class="cert-org">Microsoft · 2025</span></div>
+    <div class="cert reveal"><span class="cert-name">Introduction to Data Science</span><span class="cert-org">Cisco · 2025</span></div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title reveal">
+    <span class="pro">Tools</span>
+    <span class="hon">Daily drivers</span>
+  </h2>
+  <div class="tags reveal">
+    <span class="tag">Go High Level</span>
+    <span class="tag">CRM Automation</span>
+    <span class="tag">n8n</span>
+    <span class="tag">HTML / CSS / JS</span>
+    <span class="tag">Sales Funnels</span>
+    <span class="tag">Landing Pages</span>
+    <span class="tag">A2P 10DLC</span>
+    <span class="tag">SMS Campaigns</span>
+    <span class="tag">Email Marketing</span>
+    <span class="tag">Facebook Lead Ads</span>
+    <span class="tag">Webhooks</span>
+    <span class="tag">Canva</span>
+    <span class="tag">Adobe Illustrator</span>
+    <span class="tag">Data Analysis</span>
+  </div>
+</section>
+
+<div class="motto reveal">
+  <blockquote>
+    <span class="pro">Good systems<br>are honest.</span>
+    <span class="hon">Not all honest<br>systems are good.</span>
+  </blockquote>
+  <cite>
+    <span class="pro">adapted from Dieter Rams</span>
+    <span class="hon">me, after a long debugging session</span>
+  </cite>
+</div>
+
+<section id="contact">
+  <h2 class="section-title reveal">
+    <span class="pro">Let's work together</span>
+    <span class="hon">If you need automations that work</span>
+  </h2>
+  <div class="contact-grid reveal">
+    <a href="mailto:nimra8047@gmail.com" class="contact-item">
+      <div class="contact-label">Email</div>
+      <div class="contact-value">nimra8047@gmail.com</div>
+      <div class="contact-note">
+        <span class="pro">I reply to every message</span>
+        <span class="hon">Actually replies</span>
+      </div>
+    </a>
+    <a href="tel:+923296507650" class="contact-item">
+      <div class="contact-label">Phone</div>
+      <div class="contact-value">+92 329 650 7650</div>
+      <div class="contact-note">
+        <span class="pro">For serious inquiries</span>
+        <span class="hon">Hit or miss on pickup</span>
+      </div>
+    </a>
+    <a href="https://linkedin.com/in/nimra-abdul-sattar-197186381" target="_blank" rel="noopener" class="contact-item">
+      <div class="contact-label">LinkedIn</div>
+      <div class="contact-value">nimra-abdul-sattar</div>
+      <div class="contact-note">Let's connect</div>
+    </a>
+    <div class="contact-item">
+      <div class="contact-label">Location</div>
+      <div class="contact-value">Multan, Pakistan</div>
+      <div class="contact-note">Remote friendly</div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Nimra Abdul Sattar</footer>
+
+<!-- Project modal: workflows hidden until click -->
+<div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" id="closeModal" type="button" aria-label="Close">×</button>
+    <div class="modal-header">
+      <h2 id="modalTitle">Cleaning business · GHL workflows</h2>
+      <p>Full automation system: lead capture through booking, reminders, nurture, quote follow up, and review requests. SMS consent checked before every text.</p>
+    </div>
+    <div class="wf-list">
+      <div class="wf-item">
+        <div class="wf-item-title">01 · New lead instant response</div>
+        <div class="wf-item-imgs">
+          <img src="WF 1.1.png" alt="New lead workflow part 1" loading="lazy" />
+          <img src="WF 1.2.png" alt="New lead workflow part 2" loading="lazy" />
+          <img src="WF 1.3.png" alt="New lead workflow part 3" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">02 · Mark contacted</div>
+        <div class="wf-item-imgs">
+          <img src="WF 2.1.png" alt="Mark contacted workflow part 1" loading="lazy" />
+          <img src="WF 2.2.png" alt="Mark contacted workflow part 2" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">03 · Uncontacted lead alert</div>
+        <div class="wf-item-imgs">
+          <img src="WF 3.1.png" alt="Uncontacted lead alert part 1" loading="lazy" />
+          <img src="WF 3.2.png" alt="Uncontacted lead alert part 2" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">04 · Appointment booked</div>
+        <div class="wf-item-imgs">
+          <img src="WF 4.1.png" alt="Appointment booked part 1" loading="lazy" />
+          <img src="WF 4.2.png" alt="Appointment booked part 2" loading="lazy" />
+          <img src="WF 4.3.png" alt="Appointment booked part 3" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">05 · 24 hour appointment reminders</div>
+        <div class="wf-item-imgs">
+          <img src="WF 5.1.png" alt="24h reminder part 1" loading="lazy" />
+          <img src="WF 5.2.png" alt="24h reminder part 2" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">06 · 2 hour appointment reminders</div>
+        <div class="wf-item-imgs">
+          <img src="WF 6.1.png" alt="2h reminder part 1" loading="lazy" />
+          <img src="WF 6.2.png" alt="2h reminder part 2" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">07 · Appointment cancelled</div>
+        <div class="wf-item-imgs">
+          <img src="WF 7.1.png" alt="Appointment cancelled part 1" loading="lazy" />
+          <img src="WF 7.2.png" alt="Appointment cancelled part 2" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">08 · No show recovery</div>
+        <div class="wf-item-imgs">
+          <img src="WF 8.1.png" alt="No show recovery part 1" loading="lazy" />
+          <img src="WF 8.2.png" alt="No show recovery part 2" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">09 · Nurture (email)</div>
+        <div class="wf-item-imgs">
+          <img src="WF 9.1.png" alt="Email nurture part 1" loading="lazy" />
+          <img src="WF 9.2.png" alt="Email nurture part 2" loading="lazy" />
+          <img src="WF 9.3.png" alt="Email nurture part 3" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">10 · Nurture (SMS)</div>
+        <div class="wf-item-imgs">
+          <img src="WF 10.1.png" alt="SMS nurture part 1" loading="lazy" />
+          <img src="WF 10.2.png" alt="SMS nurture part 2" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">11 · Opt out handler</div>
+        <div class="wf-item-imgs">
+          <img src="WF 11.png" alt="Opt out handler" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">12 · Quote follow up (email)</div>
+        <div class="wf-item-imgs">
+          <img src="WF 12.1.png" alt="Quote email follow up part 1" loading="lazy" />
+          <img src="WF 12.2.png" alt="Quote email follow up part 2" loading="lazy" />
+          <img src="WF 12.3.png" alt="Quote email follow up part 3" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">13 · Quote follow up (SMS)</div>
+        <div class="wf-item-imgs">
+          <img src="WF 13.1.png" alt="Quote SMS follow up part 1" loading="lazy" />
+          <img src="WF 13.2.png" alt="Quote SMS follow up part 2" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">14 · Won</div>
+        <div class="wf-item-imgs">
+          <img src="WF 14.1.png" alt="Won workflow part 1" loading="lazy" />
+          <img src="WF 14.2.png" alt="Won workflow part 2" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">15 · Lost</div>
+        <div class="wf-item-imgs">
+          <img src="WF 15.png" alt="Lost workflow" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">16 · Review request (SMS)</div>
+        <div class="wf-item-imgs">
+          <img src="WF 16.1.png" alt="Review SMS part 1" loading="lazy" />
+          <img src="WF 16.2.png" alt="Review SMS part 2" loading="lazy" />
+          <img src="WF 16.3.png" alt="Review SMS part 3" loading="lazy" />
+        </div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-item-title">17 · Review request (email)</div>
+        <div class="wf-item-imgs">
+          <img src="WF 17.1.png" alt="Review email part 1" loading="lazy" />
+          <img src="WF 17.2.png" alt="Review email part 2" loading="lazy" />
+          <img src="WF 17.3.png" alt="Review email part 3" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('modeBtn');
+  const label = document.getElementById('modeLabel');
+
+  function updateLabel() {
+    const isHonest = document.body.classList.contains('honest');
+    const narrow = window.innerWidth <= 400;
+    label.textContent = narrow
+      ? (isHonest ? 'Honest' : 'Pro')
+      : (isHonest ? 'Honest mode' : 'Pro mode');
+  }
+
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('honest');
+    updateLabel();
+  });
+  window.addEventListener('resize', updateLabel);
+  updateLabel();
+
+  // Nav border on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach((el) => io.observe(el));
+
+  // Project modal
+  const overlay = document.getElementById('projectModal');
+  const openBtn = document.getElementById('openProject');
+  const closeBtn = document.getElementById('closeModal');
+
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  openBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+</script>
+</body>
+</html>
