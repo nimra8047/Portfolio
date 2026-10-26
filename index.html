@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nimra Abdul Sattar — GHL Expert</title>
+  <title>Nimra Abdul Sattar | GHL Expert</title>
+  <meta name="description" content="Nimra Abdul Sattar is a Go High Level expert based in Multan, Pakistan. CRM workflows, funnels, SMS and email automation, and integrations for small businesses." />
+  <meta name="theme-color" content="#0d0d0d" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='20' font-weight='700' text-anchor='middle' fill='%23eb5939'%3EN%3C/text%3E%3C/svg%3E" />
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -15,15 +19,15 @@
   --bg2: #161616;
   --text: #b7ab98;
   --text-bright: #d4c9b8;
-  --muted: #7a7268;
-  --dim: #4d4d4d;
+  --muted: #978d7e;
+  --dim: #857d70;
   --accent: #eb5939;
   --border: #2a2a2a;
   --font: 'Nunito Sans', system-ui, sans-serif;
   --display: 'Syne', system-ui, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
 body {
   font-family: var(--font);
@@ -39,20 +43,6 @@ a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
-
-/* Scroll reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
 
 /* NAV */
 nav {
@@ -78,34 +68,6 @@ nav.scrolled { border-bottom-color: var(--border); }
   display: inline-block;
 }
 .logo:hover { color: var(--accent); transform: scale(1.05); }
-.mode-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 8px 14px;
-  border: 1px solid #3a3a3a;
-  border-radius: 4px;
-  background: #1a1a1a;
-  color: var(--text);
-  transition: border-color 0.25s, background 0.25s, color 0.25s;
-}
-.mode-btn:hover {
-  border-color: var(--accent);
-  background: #1a1210;
-  color: var(--accent);
-}
-.mode-btn .dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  transition: background 0.25s;
-}
-body.honest .mode-btn .dot { background: var(--text); }
 
 /* HERO */
 .hero {
@@ -466,19 +428,36 @@ footer {
   letter-spacing: 0.5px;
 }
 
-/* Dual content */
-.hon { display: none; }
-body.honest .pro { display: none; }
-body.honest .hon { display: block; }
-body.honest span.hon { display: inline; }
-span.hon { display: none; }
-body.honest span.pro { display: none; }
-body.honest li.hon { display: list-item; }
-li.hon { display: none; }
-body.honest li.pro { display: none; }
-body.honest p.hon { display: block; }
-p.hon { display: none; }
-body.honest p.pro { display: none; }
+/* Pro / honest: 3D flip */
+.flip {
+  display: grid;
+  perspective: 1000px;
+}
+.flip > .pro,
+.flip > .hon {
+  grid-area: 1 / 1;
+  display: block;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 0.8s cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+.flip > .pro { transform: rotateX(0deg); }
+.flip > .hon { transform: rotateX(180deg); }
+.flip.is-flipped > .pro,
+.flip-host.is-flipped .flip > .pro,
+.flip-host:focus-visible .flip > .pro { transform: rotateX(-180deg); }
+.flip.is-flipped > .hon,
+.flip-host.is-flipped .flip > .hon,
+.flip-host:focus-visible .flip > .hon { transform: rotateX(0deg); }
+@media (hover: hover) {
+  .flip:hover > .pro,
+  .flip-host:hover .flip > .pro { transform: rotateX(-180deg); }
+  .flip:hover > .hon,
+  .flip-host:hover .flip > .hon { transform: rotateX(0deg); }
+}
+.section-title.flip,
+.hero h1.flip,
+.hero-tag.flip { width: fit-content; max-width: 100%; }
 
 /* MODAL */
 .modal-overlay {
@@ -506,10 +485,11 @@ body.honest p.pro { display: none; }
   width: 100%;
   padding: 36px 32px;
   position: relative;
-  transform: translateY(20px);
-  transition: transform 0.3s;
+  transform: perspective(1200px) rotateX(-8deg) translateY(20px);
+  transform-origin: 50% 0;
+  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.24, 1);
 }
-.modal-overlay.open .modal { transform: translateY(0); }
+.modal-overlay.open .modal { transform: perspective(1200px) rotateX(0deg) translateY(0); }
 .modal-close {
   position: absolute;
   top: 16px;
@@ -579,7 +559,7 @@ body.honest p.pro { display: none; }
   height: auto;
 }
 
-/* RESPONSIVE — large screens */
+/* RESPONSIVE: large screens */
 @media (min-width: 1200px) {
   .hero h1 { font-size: clamp(56px, 7vw, 96px); }
   .hero-sub { max-width: 640px; }
@@ -614,7 +594,6 @@ body.honest p.pro { display: none; }
 @media (max-width: 640px) {
   nav { padding: 14px 16px; }
   .logo { font-size: 16px; }
-  .mode-btn { font-size: 10px; padding: 7px 10px; letter-spacing: 1px; }
   .hero { padding: 90px 16px 50px; }
   .hero-tag { font-size: 10px; letter-spacing: 2px; margin-bottom: 24px; }
   .hero h1 {
@@ -661,7 +640,52 @@ body.honest p.pro { display: none; }
 @media (max-width: 380px) {
   .hero h1 { font-size: clamp(28px, 12vw, 36px); }
   .hero-tag { font-size: 9px; letter-spacing: 1.5px; }
-  .mode-btn { padding: 7px 10px; font-size: 9px; }
+}
+
+/* Responsive safety net: 0px up to 1800px and beyond */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+nav { gap: 12px; }
+.logo { flex-shrink: 0; }
+.flip { grid-template-columns: minmax(0, 1fr); }
+.flip > .pro, .flip > .hon { min-width: 0; overflow-wrap: anywhere; }
+.btn { max-width: 100%; }
+.contact-value, .contact-note, .project-meta { overflow-wrap: anywhere; }
+@media (max-width: 400px) {
+  .job-date, .cert-org { white-space: normal; }
+  section { padding-left: 14px; padding-right: 14px; }
+  nav, .hero, .motto, footer { padding-left: 14px; padding-right: 14px; }
+}
+@media (max-width: 640px) and (orientation: landscape) {
+  .hero { min-height: auto; padding-top: 84px; }
+}
+
+.job-company a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  overflow-wrap: anywhere;
+  transition: border-color 0.2s;
+}
+.job-company a:hover,
+.job-company a:focus-visible { border-bottom-color: currentColor; }
+
+/* Scroll reveal: soft 3D tilt-in. Kept last so it wins over component transitions;
+   the script removes the classes once an element has appeared. */
+.reveal {
+  opacity: 0;
+  transform: perspective(900px) rotateX(12deg) translateY(28px);
+  transform-origin: 50% 0;
+  transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: perspective(900px) rotateX(0deg) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .flip > .pro, .flip > .hon, .modal { transition-duration: 0.01s; }
 }
   </style>
 </head>
@@ -669,83 +693,93 @@ body.honest p.pro { display: none; }
 
 <nav>
   <a href="#" class="logo">Nimra</a>
-  <button class="mode-btn" id="modeBtn" type="button">
-    <span class="dot"></span>
-    <span id="modeLabel">Pro mode</span>
-  </button>
 </nav>
 
 <header class="hero">
-  <p class="hero-tag reveal">
+  <p class="hero-tag reveal flip">
+    <span class="pro">GHL Expert</span>
     <span class="hon">Still learning · Still shipping</span>
   </p>
-  <h1 class="reveal reveal-delay-1">
+  <h1 class="reveal reveal-delay-1 flip">
     <span class="pro">Building<br>systems<br>that<br><span class="accent">work.</span></span>
     <span class="hon">Automating<br>the boring<br>stuff so<br><span class="accent">you don't.</span></span>
   </h1>
-  <p class="hero-sub reveal reveal-delay-2">
+  <p class="hero-sub reveal reveal-delay-2 flip">
     <span class="pro">Computer science graduate and Go High Level specialist. I help businesses set up CRM workflows, sales funnels, and automations that save time and convert leads.</span>
-    <span class="hon">CS grad who spends most days inside Go High Level, n8n, and SMS compliance settings. I build the systems that capture leads and book appointments so you can stop living in your inbox.</span>
+    <span class="hon">CS grad who spends most days inside Go High Level, Zapier, and SMS compliance settings. I build the systems that capture leads and book appointments so you can stop living in your inbox.</span>
   </p>
   <a href="#contact" class="btn reveal reveal-delay-3">Get in touch</a>
+
 </header>
 
 <section id="about">
-  <h2 class="section-title reveal">
+  <h2 class="section-title reveal flip">
     <span class="pro">About</span>
     <span class="hon">Who I am</span>
   </h2>
-  <p class="about-text reveal reveal-delay-1">
+  <p class="about-text reveal reveal-delay-1 flip">
     <span class="pro">I'm a computer science graduate from Virtual University with a focus on Go High Level, automation, and frontend work. I design streamlined systems that improve customer journeys, cut down manual tasks, and help businesses grow without the chaos. Proactive, analytical, and always looking for a cleaner way to get things done.</span>
-    <span class="hon">I'm a recent CS graduate who got good at Go High Level, n8n, and making sure SMS campaigns don't get blocked. Most of my work is building the boring but important stuff: lead capture, follow ups, appointment booking, so business owners can focus on what they actually enjoy. Still learning. Still shipping.</span>
+    <span class="hon">I'm a CS graduate who got good at Go High Level and making sure SMS campaigns don't get blocked. Most of my work is building the boring but important stuff: lead capture, follow ups, appointment booking, so business owners can focus on what they actually enjoy. Still learning. Still shipping.</span>
   </p>
 </section>
 
 <section id="work">
-  <h2 class="section-title reveal">
+  <h2 class="section-title reveal flip">
     <span class="pro">Services</span>
     <span class="hon">What I get paid for</span>
   </h2>
   <div class="cards">
-    <div class="card reveal">
+    <div class="card reveal flip-host">
       <h3>GHL &amp; CRM Automation</h3>
-      <p class="pro">Full Go High Level setup: pipelines, triggers, calendars, forms, and end to end workflows for lead nurturing and client communication.</p>
-      <p class="hon">I live in GHL. Pipelines, stages, triggers, calendars. If it can be automated, I've probably built it (and fixed it when it broke).</p>
+      <div class="flip">
+        <p class="pro">Full Go High Level setup: pipelines, triggers, calendars, forms, and end to end workflows for lead nurturing and client communication.</p>
+        <p class="hon">I live in GHL. Pipelines, stages, triggers, calendars. If it can be automated, I've probably built it (and fixed it when it broke).</p>
+      </div>
     </div>
-    <div class="card reveal reveal-delay-1">
+    <div class="card reveal reveal-delay-1 flip-host">
       <h3>Funnels &amp; Landing Pages</h3>
-      <p class="pro">High converting landing pages, sales funnels, and websites built in GHL, designed for clarity and conversion.</p>
-      <p class="hon">Pages that ask for the email and look decent doing it. Built inside GHL, not dragged from a generic template.</p>
+      <div class="flip">
+        <p class="pro">High converting landing pages, sales funnels, and websites built in GHL, designed for clarity and conversion.</p>
+        <p class="hon">Pages that ask for the email and look decent doing it. Built inside GHL, not dragged from a generic template.</p>
+      </div>
     </div>
-    <div class="card reveal">
+    <div class="card reveal flip-host">
       <h3>Integrations</h3>
-      <p class="pro">Connecting GHL with n8n,webhooks, and Facebook Lead Ads for seamless data flow.</p>
-      <p class="hon">Gluing apps together so data moves where it should. n8n, Zapier, Make, webhooks, whichever fits.</p>
+      <div class="flip">
+        <p class="pro">Connecting GHL with Zapier, webhooks, and Facebook Lead Ads for seamless data flow.</p>
+        <p class="hon">Gluing apps together so data moves where it should. Zapier, Make, webhooks, whichever fits.</p>
+      </div>
     </div>
-    <div class="card reveal reveal-delay-1">
+    <div class="card reveal reveal-delay-1 flip-host">
       <h3>SMS &amp; Email Systems</h3>
-      <p class="pro">A2P 10DLC registration, compliant SMS campaigns, and branded email/SMS templates that improve deliverability.</p>
-      <p class="hon">Making sure texts actually get delivered and don't land you in spam jail. Also writing messages that don't sound like robots.</p>
+      <div class="flip">
+        <p class="pro">A2P 10DLC registration, compliant SMS campaigns, and branded email/SMS templates that improve deliverability.</p>
+        <p class="hon">Making sure texts actually get delivered and don't land you in spam jail. Also writing messages that don't sound like robots.</p>
+      </div>
     </div>
-    <div class="card reveal">
+    <div class="card reveal flip-host">
       <h3>Frontend Development</h3>
-      <p class="pro">Responsive interfaces with HTML, CSS &amp; JavaScript. Custom e commerce with design previews and upload features.</p>
-      <p class="hon">HTML, CSS, JS. Making things look fine on mobile and sometimes adding a design preview that actually works.</p>
+      <div class="flip">
+        <p class="pro">Responsive interfaces with HTML, CSS &amp; JavaScript. Custom e commerce with design previews and upload features.</p>
+        <p class="hon">HTML, CSS, JS. Making things look fine on mobile and sometimes adding a design preview that actually works.</p>
+      </div>
     </div>
-    <div class="card reveal reveal-delay-1">
+    <div class="card reveal reveal-delay-1 flip-host">
       <h3>Troubleshooting</h3>
-      <p class="pro">Fixing workflow failures, integration issues, SMS delivery problems, and lead routing bugs.</p>
-      <p class="hon">When something breaks (and it will), I find out why and fix it. Preferably before anyone notices.</p>
+      <div class="flip">
+        <p class="pro">Fixing workflow failures, integration issues, SMS delivery problems, and lead routing bugs.</p>
+        <p class="hon">When something breaks (and it will), I find out why and fix it. Preferably before anyone notices.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="project">
   <h2 class="section-title reveal">Selected work</h2>
-  <div class="project-card reveal" id="openProject" role="button" tabindex="0">
+  <div class="project-card reveal flip-host" id="openProject" role="button" tabindex="0">
     <div class="project-meta">GHL · Cleaning business · 17 workflows</div>
     <h3 class="project-title">Full lead to booked pipeline</h3>
-    <p class="project-desc">
+    <p class="project-desc flip">
       <span class="pro">End to end Go High Level automation for a cleaning company: instant lead response, appointment booking, reminders, no show recovery, nurture sequences, quote follow ups, and review requests. Built with SMS consent checks and business hours routing.</span>
       <span class="hon">Seventeen workflows that take a form fill from "who is this?" to "they're booked, reminded, and asked for a review." Includes the boring compliance bits so SMS stays legal.</span>
     </p>
@@ -754,75 +788,86 @@ body.honest p.pro { display: none; }
 </section>
 
 <section id="experience">
-  <h2 class="section-title reveal">
+  <h2 class="section-title reveal flip">
     <span class="pro">Experience</span>
     <span class="hon">Where I've been</span>
   </h2>
 
-  <div class="job reveal">
+  <div class="job reveal flip-host">
     <div class="job-top">
-      <span class="job-role">
-        <span class="pro">Frontend Developer</span>
-        <span class="hon">GHL Developer</span>
+      <span class="job-role flip">
+        <span class="pro">GHL Specialist</span>
+        <span class="hon">Automation Builder</span>
       </span>
-      <span class="job-date">Jul – Sep 2026</span>
+      <span class="job-date">January 2026 – September 2026</span>
     </div>
     <div class="job-company">CRM Automates</div>
     <ul>
-      <li class="pro">Managed GoHighLevel accounts for US based clients: CRM setup, configuration, and automation.</li>
-      <li class="hon">Kept US clients' GHL accounts running without major fires.</li>
-      <li class="pro">Built high converting landing pages, sales funnels, and websites to client requirements.</li>
-      <li class="hon">Built the pages and funnels they needed (and fixed the ones that weren't converting).</li>
-      <li class="pro">Designed automated workflows for lead nurturing, follow ups, and client communication.</li>
-      <li class="hon">Wired up lead nurturing so follow ups actually happened on time.</li>
-      <li class="pro">Handled A2P 10DLC registration and created email/SMS templates for outreach campaigns.</li>
-      <li class="hon">Dealt with A2P registration so texts could go out legally.</li>
-      <li class="pro">Integrated GHL with external apps using n8n; troubleshot workflows and integrations.</li>
-      <li class="hon">Connected everything with n8n and fixed whatever broke along the way.</li>
+      <li class="flip"><span class="pro">Managed GHL accounts and supported US-based clients with CRM setup and automation.</span><span class="hon">Kept US clients' GHL accounts running without major fires.</span></li>
+      <li class="flip"><span class="pro">Built high-converting landing pages, sales funnels, and websites.</span><span class="hon">Built the pages and funnels they needed (and fixed the ones that weren't converting).</span></li>
+      <li class="flip"><span class="pro">Developed automated workflows for lead nurturing, follow-ups, and client communication.</span><span class="hon">Wired up lead nurturing so follow ups actually happened on time.</span></li>
+      <li class="flip"><span class="pro">Created email and SMS templates for automated outreach and follow-up campaigns.</span><span class="hon">Wrote the email and SMS templates behind the outreach and follow up campaigns.</span></li>
+      <li class="flip"><span class="pro">Connected GHL with third-party apps and AI tools to automate workflows.</span><span class="hon">Hooked GHL up to other apps and AI tools so less had to be done by hand.</span></li>
+      <li class="flip"><span class="pro">Handled A2P 10DLC registration and integration for compliant SMS messaging.</span><span class="hon">Dealt with A2P registration so texts could go out legally.</span></li>
+      <li class="flip"><span class="pro">Troubleshoot and resolved workflow, integration, and GHL issues.</span><span class="hon">Worked out why things broke and fixed them.</span></li>
     </ul>
   </div>
 
-  <div class="job reveal">
+  <div class="job reveal flip-host">
     <div class="job-top">
-      <span class="job-role">
+      <span class="job-role flip">
         <span class="pro">GHL Expert</span>
         <span class="hon">Automation Specialist</span>
       </span>
-      <span class="job-date">Mar – Jun 2026</span>
+      <span class="job-date">September 2024 – January 2026</span>
     </div>
     <div class="job-company">Growth Guild</div>
     <ul>
-      <li class="pro">Designed websites, landing pages, and sales funnels inside GoHighLevel.</li>
-      <li class="hon">Made a lot of GHL pages that didn't look like default templates.</li>
-      <li class="pro">Built automation workflows to reduce manual tasks and improve campaign efficiency.</li>
-      <li class="hon">Automated the repetitive stuff so people could do more interesting work.</li>
-      <li class="pro">Managed A2P messaging and ran high volume SMS campaigns with compliance focus.</li>
-      <li class="hon">Sent a lot of compliant SMS without getting accounts banned.</li>
-      <li class="pro">Created branded email/SMS templates; built lead nurturing, booking, and reminder flows.</li>
-      <li class="hon">Wrote messages that sounded like the brand and built the full lead to booking loop.</li>
-      <li class="pro">Managed pipelines, forms, surveys, calendars, and triggers. Integrated via Zapier, Make, and webhooks.</li>
-      <li class="hon">Pipelines, forms, calendars, triggers: the full toolkit. Glued GHL to everything else with Zapier and Make.</li>
-      <li class="pro">Connected Facebook Lead Ads and other sources for automated lead capture and routing.</li>
-      <li class="hon">Made Facebook leads actually land in the right place.</li>
+      <li class="flip"><span class="pro">Built websites, landing pages, and sales funnels in GHL.</span><span class="hon">Made a lot of GHL pages that didn't look like default templates.</span></li>
+      <li class="flip"><span class="pro">Created automation workflows to reduce manual tasks.</span><span class="hon">Automated the repetitive stuff so people could do more interesting work.</span></li>
+      <li class="flip"><span class="pro">Managed A2P messaging and high-volume SMS campaigns with compliance.</span><span class="hon">Sent a lot of compliant SMS without getting accounts banned.</span></li>
+      <li class="flip"><span class="pro">Designed brand-aligned email and SMS templates.</span><span class="hon">Made emails and texts sound like the brand, not like a template.</span></li>
+      <li class="flip"><span class="pro">Built lead nurturing, follow-up, booking, and reminder workflows.</span><span class="hon">Built the full lead to booking loop: nurturing, follow ups, and reminders.</span></li>
+      <li class="flip"><span class="pro">Managed pipelines, forms, surveys, calendars, and triggers.</span><span class="hon">Pipelines, forms, surveys, calendars, triggers: the full toolkit.</span></li>
+      <li class="flip"><span class="pro">Connected Facebook Lead Ads and other sources for lead capture.</span><span class="hon">Made Facebook leads actually land in the right place.</span></li>
+      <li class="flip"><span class="pro">Integrated AI tools like Claude, Grok, and ChatGPT with GHL.</span><span class="hon">Plugged Claude, Grok, and ChatGPT into GHL where they were useful.</span></li>
+      <li class="flip"><span class="pro">Integrated GHL with third party platforms using Zapier, Webhooks and other integration tools.</span><span class="hon">Glued GHL to other platforms with Zapier, webhooks, and whatever else fit.</span></li>
+      <li class="flip"><span class="pro">Troubleshoot CRM workflows, integrations, and SMS delivery.</span><span class="hon">Tracked down broken workflows, integrations, and SMS that wasn't getting delivered.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title reveal flip">
+    <span class="pro">Project</span>
+    <span class="hon">Things I built</span>
+  </h2>
+
+  <div class="job reveal flip-host">
+    <div class="job-top">
+      <span class="job-role">SparklePro Cleaning Services</span>
+    </div>
+    <div class="job-company"><a href="https://sparklepro-rosy.vercel.app/" target="_blank" rel="noopener">sparklepro-rosy.vercel.app</a></div>
+    <ul>
+      <li class="flip"><span class="pro">Custom-coded a responsive multi-page website for a home cleaning business in GHL.</span><span class="hon">Hand coded a responsive multi page site for a home cleaning business, inside GHL.</span></li>
+      <li class="flip"><span class="pro">Built a conversion-focused homepage with clear offer and quote-request CTAs.</span><span class="hon">A homepage with one clear offer and obvious quote buttons.</span></li>
+      <li class="flip"><span class="pro">Created a Services &amp; Pricing page with a lead-capture quote form.</span><span class="hon">A Services and Pricing page with a quote form that captures leads.</span></li>
+      <li class="flip"><span class="pro">Added an interactive before/after slider to showcase real results.</span><span class="hon">A before/after slider so the results speak for themselves.</span></li>
+      <li class="flip"><span class="pro">Built testimonials and FAQ sections to build trust and boost conversions.</span><span class="hon">Testimonials and FAQs to answer doubts before anyone has to ask.</span></li>
+      <li class="flip"><span class="pro">Optimized with custom meta titles, descriptions, and keywords for local SEO.</span><span class="hon">Custom meta titles, descriptions, and keywords so local searches can find it.</span></li>
     </ul>
   </div>
 
-  <div class="job reveal">
+  <div class="job reveal flip-host">
     <div class="job-top">
-      <span class="job-role">
-        <span class="pro">Frontend Developer</span>
-        <span class="hon">Frontend </span>
-      </span>
-      <span class="job-date">Dec 2025 – Jan 2026</span>
+      <span class="job-role">Designer Hub</span>
     </div>
-    <div class="job-company">Freelance Project</div>
     <ul>
-      <li class="pro">Built a custom e commerce site for personalized printing (mugs, shirts, and more) with a team.</li>
-      <li class="hon">Helped build an online shop where people personalize mugs and shirts.</li>
-      <li class="pro">Implemented the frontend in HTML, CSS, and JavaScript: responsive and cross browser compatible.</li>
-      <li class="hon">Wrote the HTML, CSS, and JS so it looked good and worked on phones.</li>
-      <li class="pro">Added design previews and custom upload functionality; integrated with a PHP backend.</li>
-      <li class="hon">Made the design preview and upload features work, and coordinated with the PHP backend side.</li>
+      <li class="flip"><span class="pro">Collaborated in a team to build a custom e-commerce website for personalized printing on mugs, shirts, and other items.</span><span class="hon">Worked with a team on an online shop where people print their own designs on mugs, shirts, and more.</span></li>
+      <li class="flip"><span class="pro">Built a responsive frontend using HTML, CSS, and JavaScript.</span><span class="hon">Wrote the responsive frontend in HTML, CSS, and JavaScript.</span></li>
+      <li class="flip"><span class="pro">Developed dynamic features like design previews and custom design uploads.</span><span class="hon">Built the design preview and upload features.</span></li>
+      <li class="flip"><span class="pro">Coordinated with the team to integrate the PHP backend with the frontend.</span><span class="hon">Worked with the team to connect the PHP backend to the frontend.</span></li>
+      <li class="flip"><span class="pro">Improved UX/UI with cross-browser compatibility and mobile responsiveness.</span><span class="hon">Made it work across browsers and on phones.</span></li>
     </ul>
   </div>
 </section>
@@ -843,14 +888,14 @@ body.honest p.pro { display: none; }
 </section>
 
 <section id="skills">
-  <h2 class="section-title reveal">
+  <h2 class="section-title reveal flip">
     <span class="pro">Tools</span>
     <span class="hon">Daily drivers</span>
   </h2>
   <div class="tags reveal">
     <span class="tag">Go High Level</span>
     <span class="tag">CRM Automation</span>
-    <span class="tag">n8n</span>
+    <span class="tag">Zapier</span>
     <span class="tag">HTML / CSS / JS</span>
     <span class="tag">Sales Funnels</span>
     <span class="tag">Landing Pages</span>
@@ -865,35 +910,35 @@ body.honest p.pro { display: none; }
   </div>
 </section>
 
-<div class="motto reveal">
-  <blockquote>
+<div class="motto reveal flip-host">
+  <blockquote class="flip">
     <span class="pro">Good systems<br>are honest.</span>
     <span class="hon">Not all honest<br>systems are good.</span>
   </blockquote>
-  <cite>
+  <cite class="flip">
     <span class="pro">adapted from Dieter Rams</span>
     <span class="hon">me, after a long debugging session</span>
   </cite>
 </div>
 
 <section id="contact">
-  <h2 class="section-title reveal">
+  <h2 class="section-title reveal flip">
     <span class="pro">Let's work together</span>
     <span class="hon">If you need automations that work</span>
   </h2>
   <div class="contact-grid reveal">
-    <a href="mailto:nimra8047@gmail.com" class="contact-item">
+    <a href="mailto:nimra8047@gmail.com" class="contact-item flip-host">
       <div class="contact-label">Email</div>
       <div class="contact-value">nimra8047@gmail.com</div>
-      <div class="contact-note">
+      <div class="contact-note flip">
         <span class="pro">I reply to every message</span>
         <span class="hon">Actually replies</span>
       </div>
     </a>
-    <a href="tel:+923296507650" class="contact-item">
+    <a href="tel:+923296507650" class="contact-item flip-host">
       <div class="contact-label">Phone</div>
       <div class="contact-value">+92 329 650 7650</div>
-      <div class="contact-note">
+      <div class="contact-note flip">
         <span class="pro">For serious inquiries</span>
         <span class="hon">Hit or miss on pickup</span>
       </div>
@@ -1050,24 +1095,6 @@ body.honest p.pro { display: none; }
 </div>
 
 <script>
-  const btn = document.getElementById('modeBtn');
-const label = document.getElementById('modeLabel');
-
-function updateLabel() {
-  const isHonest = document.body.classList.contains('honest');
-  const narrow = window.innerWidth <= 400;
-  label.textContent = narrow
-    ? (isHonest ? 'Honest' : 'Pro')
-    : (isHonest ? 'Honest mode' : 'Pro mode');
-}
-
-btn.addEventListener('click', () => {
-  document.body.classList.toggle('honest');
-  updateLabel();
-});
-window.addEventListener('resize', updateLabel);
-updateLabel();
-
 // Nav border on scroll
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
@@ -1075,16 +1102,38 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // Scroll reveal
+const delays = { 'reveal-delay-1': 100, 'reveal-delay-2': 200, 'reveal-delay-3': 300 };
 const reveals = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    io.unobserve(el);
+    const delay = Object.keys(delays).reduce((d, c) => (el.classList.contains(c) ? delays[c] : d), 0);
+    setTimeout(() => {
+      el.classList.add('visible');
+      // hand the element back to its own hover transitions once it has appeared
+      setTimeout(() => el.classList.remove('reveal', 'visible'), 1000);
+    }, delay);
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach((el) => io.observe(el));
+
+// Touch devices: tap to flip (mouse users get hover)
+if (window.matchMedia('(hover: none)').matches) {
+  document.querySelectorAll('.flip, .flip-host').forEach((el) => {
+    if (el.id === 'openProject') return;
+    if (!el.classList.contains('flip-host') && el.closest('.flip-host')) return;
+    el.addEventListener('click', () => el.classList.toggle('is-flipped'));
+  });
+  const projectDesc = document.querySelector('.project-desc');
+  if (projectDesc) {
+    projectDesc.addEventListener('click', (e) => {
+      e.stopPropagation();
+      projectDesc.classList.toggle('is-flipped');
+    });
+  }
+}
 
 // Project modal
 const overlay = document.getElementById('projectModal');
@@ -1118,4 +1167,3 @@ document.addEventListener('keydown', (e) => {
 </script>
 </body>
 </html>
-s
